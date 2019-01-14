@@ -1,2 +1,2 @@
 # notebooks
-Take notes
+These are my notebooks, folder name is the notebook name.
