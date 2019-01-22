@@ -1,5 +1,7 @@
 ## Robotic Operating System(ROS)
 
+![1547606033243](/home/jaden/.config/Typora/typora-user-images/1547606033243.png)
+
 ### Introduction
 
 ROS is an open-source, meta-operating system for your robot.
@@ -256,27 +258,27 @@ hardware abstraction, low-level device control, commonly-used functionality, mes
 
 
 
-            This option (dash-one) causes rostopic to only publish one message then exit: 
-    
-            ```
-             -1 
-            ```
+​        This option (dash-one) causes rostopic to only publish one message then exit: 
+
+        ```
+         -1 
+        ```
 
 
 
-            This is the name of the topic to publish to: 
-    
-            ```
-            /turtle1/cmd_vel
-            ```
+​        This is the name of the topic to publish to: 
+
+        ```
+        /turtle1/cmd_vel
+        ```
 
 
 
-            This is the message type to use when publishing to the topic: 
-    
-            ```
-            geometry_msgs/Twist
-            ```
+​        This is the message type to use when publishing to the topic: 
+
+        ```
+        geometry_msgs/Twist
+        ```
 
 
 
@@ -355,25 +357,23 @@ hardware abstraction, low-level device control, commonly-used functionality, mes
 
 ​        	Here we write all the parameters to the file params.yaml 
 
+
+
+​```
+
+
+
 ```
-
-​```
-    ```
-
-​```
-
 $ rosparam dump params.yaml
-        ```
 ```
+
 
 
 
 ​        You can even load these yaml files into new namespaces, e.g. `copy`: 
 
-```
         $ rosparam load params.yaml copy
         $ rosparam get /copy/background_b
-```
 
 
 
@@ -383,44 +383,44 @@ $ rosparam dump params.yaml
         $ rosrun rqt_console rqt_console
         ```
 
-        ```
-        $ rosrun rqt_logger_level rqt_logger_level
-        ```
+    ```
+    $ rosrun rqt_logger_level rqt_logger_level
+    ```
 
-        兩種console
+​    兩種console
 
-     2. roslaunch
+ 2. roslaunch
 
-        ```
-        roslaunch [package] [filename.launch]
-        ```
+    ```
+    roslaunch [package] [filename.launch]
+    ```
 
-        example:
+    example:
 
-        ```
-        roslaunch beginner_tutorials turtlemimic.launch
-        ```
+    ```
+    roslaunch beginner_tutorials turtlemimic.launch
+    ```
 
-        須先寫好.launch檔（xml格式）：
+    須先寫好.launch檔（xml格式）：
 
-        ```
-        <launch>
-        
-          <group ns="turtlesim1">
-            <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
-          </group>
-        
-          <group ns="turtlesim2">
-            <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
-          </group>
-        
-          <node pkg="turtlesim" name="mimic" type="mimic">
-            <remap from="input" to="turtlesim1/turtle1"/>
-            <remap from="output" to="turtlesim2/turtle1"/>
-          </node>
-        
-        </launch>
-        ```
+    ```
+    <launch>
+    
+      <group ns="turtlesim1">
+        <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+      </group>
+    
+      <group ns="turtlesim2">
+        <node pkg="turtlesim" name="sim" type="turtlesim_node"/>
+      </group>
+    
+      <node pkg="turtlesim" name="mimic" type="mimic">
+        <remap from="input" to="turtlesim1/turtle1"/>
+        <remap from="output" to="turtlesim2/turtle1"/>
+      </node>
+    
+    </launch>
+    ```
 
   10. rosed
 
@@ -569,262 +569,262 @@ $ rosparam dump params.yaml
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             27 #include "ros/ros.h"
-             28 
-           ```
+       ```
+         27 #include "ros/ros.h"
+         28 
+       ```
 
 
 
-            `ros/ros.h` is a convenience include that includes all the headers necessary to use the most common public pieces of the ROS system. 
+​        `ros/ros.h` is a convenience include that includes all the headers necessary to use the most common public pieces of the ROS system. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             28 #include "std_msgs/String.h"
-             29 
-           ```
+       ```
+         28 #include "std_msgs/String.h"
+         29 
+       ```
 
 
 
-            This includes the [std_msgs/String](http://docs.ros.org/api/std_msgs/html/msg/String.html) message, which resides in the [std_msgs](http://wiki.ros.org/std_msgs) package.  This is a header generated automatically from the `String.msg` file in that package.  For more information on message definitions, see the [msg](http://wiki.ros.org/msg) page. 
+​        This includes the [std_msgs/String](http://docs.ros.org/api/std_msgs/html/msg/String.html) message, which resides in the [std_msgs](http://wiki.ros.org/std_msgs) package.  This is a header generated automatically from the `String.msg` file in that package.  For more information on message definitions, see the [msg](http://wiki.ros.org/msg) page. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             47   ros::init(argc, argv, "talker");
-           ```
+       ```
+         47   ros::init(argc, argv, "talker");
+       ```
 
 
 
-            Initialize  ROS.  This allows ROS to do name remapping through the command line --  not important for now. This is also where we specify the name of our  node.  Node names must be unique in a running system. 
+​        Initialize  ROS.  This allows ROS to do name remapping through the command line --  not important for now. This is also where we specify the name of our  node.  Node names must be unique in a running system. 
 
-           The name used here must be a [base name](http://wiki.ros.org/Names#Graph), ie. it cannot have a `/` in it. 
+​       The name used here must be a [base name](http://wiki.ros.org/Names#Graph), ie. it cannot have a `/` in it. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             54   ros::NodeHandle n;
-           ```
+       ```
+         54   ros::NodeHandle n;
+       ```
 
 
 
-            Create a handle to this process' node.  The first `NodeHandle`  created will actually do the initialization of the node, and the last  one destructed will cleanup any resources the node was using. 
+​        Create a handle to this process' node.  The first `NodeHandle`  created will actually do the initialization of the node, and the last  one destructed will cleanup any resources the node was using. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             73   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
-           ```
+       ```
+         73   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+       ```
 
 
 
-            Tell the master that we are going to be publishing a message of type [std_msgs/String](http://docs.ros.org/api/std_msgs/html/msg/String.html) on the topic `chatter`.  This lets the master tell any nodes listening on `chatter`  that we are going to publish data on that topic.  The second argument  is the size of our publishing queue.  In this case if we are publishing  too quickly it will buffer up a maximum of 1000 messages before  beginning to throw away old ones. 
+​        Tell the master that we are going to be publishing a message of type [std_msgs/String](http://docs.ros.org/api/std_msgs/html/msg/String.html) on the topic `chatter`.  This lets the master tell any nodes listening on `chatter`  that we are going to publish data on that topic.  The second argument  is the size of our publishing queue.  In this case if we are publishing  too quickly it will buffer up a maximum of 1000 messages before  beginning to throw away old ones. 
 
-           `NodeHandle::advertise()` returns a `ros::Publisher` object, which serves two purposes: 1) it contains a `publish()`  method that lets you publish messages onto the topic it was created  with, and 2) when it goes out of scope, it will automatically  unadvertise. 
+​       `NodeHandle::advertise()` returns a `ros::Publisher` object, which serves two purposes: 1) it contains a `publish()`  method that lets you publish messages onto the topic it was created  with, and 2) when it goes out of scope, it will automatically  unadvertise. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             75   ros::Rate loop_rate(10);
-           ```
+       ```
+         75   ros::Rate loop_rate(10);
+       ```
 
 
 
-            A `ros::Rate`  object allows you to specify a frequency that you would like to loop  at.  It will keep track of how long it has been since the last call to `Rate::sleep()`, and sleep for the correct amount of time. 
+​        A `ros::Rate`  object allows you to specify a frequency that you would like to loop  at.  It will keep track of how long it has been since the last call to `Rate::sleep()`, and sleep for the correct amount of time. 
 
-           In this case we tell it we want to run at 10Hz. 
+​       In this case we tell it we want to run at 10Hz. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             81   int count = 0;
-             82   while (ros::ok())
-             83   {
-           ```
+       ```
+         81   int count = 0;
+         82   while (ros::ok())
+         83   {
+       ```
 
 
 
-            By default roscpp will install a SIGINT handler which provides Ctrl-C handling which will cause `ros::ok()` to return false if that happens. 
+​        By default roscpp will install a SIGINT handler which provides Ctrl-C handling which will cause `ros::ok()` to return false if that happens. 
 
-           `ros::ok()` will return false if: 
+​       `ros::ok()` will return false if: 
 
-           - a SIGINT is received (Ctrl-C) 
-           - we have been kicked off the network by another node with the same name 
-           - `ros::shutdown()` has been called by another part of the application.   
-           - all ros::[NodeHandles](http://wiki.ros.org/NodeHandles) have been destroyed 
+       - a SIGINT is received (Ctrl-C) 
+              - we have been kicked off the network by another node with the same name 
+              - `ros::shutdown()` has been called by another part of the application.   
+                     - all ros::[NodeHandles](http://wiki.ros.org/NodeHandles) have been destroyed 
 
-           Once `ros::ok()` returns false, all ROS calls will fail. 
+​       Once `ros::ok()` returns false, all ROS calls will fail. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             87     std_msgs::String msg;
-             88 
-             89     std::stringstream ss;
-             90     ss << "hello world " << count;
-             91     msg.data = ss.str();
-           ```
+       ```
+         87     std_msgs::String msg;
+         88 
+         89     std::stringstream ss;
+         90     ss << "hello world " << count;
+         91     msg.data = ss.str();
+       ```
 
 
 
-            We broadcast a message on ROS using a message-adapted class, generally generated from a [msg file](http://wiki.ros.org/msg).  More complicated datatypes are possible, but for now we're going to use the standard `String` message, which has one member: "data". 
+​        We broadcast a message on ROS using a message-adapted class, generally generated from a [msg file](http://wiki.ros.org/msg).  More complicated datatypes are possible, but for now we're going to use the standard `String` message, which has one member: "data". 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-            101     chatter_pub.publish(msg);
-           ```
+       ```
+        101     chatter_pub.publish(msg);
+       ```
 
 
 
-            Now we actually broadcast the message to anyone who is connected. 
+​        Now we actually broadcast the message to anyone who is connected. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             93     ROS_INFO("%s", msg.data.c_str());
-           ```
+       ```
+         93     ROS_INFO("%s", msg.data.c_str());
+       ```
 
 
 
-            `ROS_INFO` and friends are our replacement for `printf`/`cout`.  See the [rosconsole documentation](http://wiki.ros.org/rosconsole) for more information. 
+​        `ROS_INFO` and friends are our replacement for `printf`/`cout`.  See the [rosconsole documentation](http://wiki.ros.org/rosconsole) for more information. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-            103     ros::spinOnce();
-           ```
+       ```
+        103     ros::spinOnce();
+       ```
 
 
 
-            Calling `ros::spinOnce()`  here is not necessary for this simple program, because we are not  receiving any callbacks.  However, if you were to add a subscription  into this application, and did not have `ros::spinOnce()` here, your callbacks would never get called.  So, add it for good measure. 
+​        Calling `ros::spinOnce()`  here is not necessary for this simple program, because we are not  receiving any callbacks.  However, if you were to add a subscription  into this application, and did not have `ros::spinOnce()` here, your callbacks would never get called.  So, add it for good measure. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-            105     loop_rate.sleep();
-           ```
+       ```
+        105     loop_rate.sleep();
+       ```
 
 
 
-            Now we use the `ros::Rate` object to sleep for the time remaining to let us hit our 10Hz publish rate. 
+​        Now we use the `ros::Rate` object to sleep for the time remaining to let us hit our 10Hz publish rate. 
 
-           Here's the condensed version of what's going on: 
+​       Here's the condensed version of what's going on: 
 
-           - Initialize the ROS system 
-           - Advertise that we are going to be publishing [std_msgs/String](http://docs.ros.org/api/std_msgs/html/msg/String.html) messages on the `chatter` topic to the master 
-           - Loop while publishing messages to `chatter` 10 times a second 
+       - Initialize the ROS system 
+              - Advertise that we are going to be publishing [std_msgs/String](http://docs.ros.org/api/std_msgs/html/msg/String.html) messages on the `chatter` topic to the master 
+              - Loop while publishing messages to `chatter` 10 times a second 
 
-        2. Subscriber Node
+    2. Subscriber Node
 
-           在package下的src裡建立c++：
+       在package下的src裡建立c++：
 
-           Now, let's break it down piece by piece, ignoring some pieces that have already been explained above. 
+       Now, let's break it down piece by piece, ignoring some pieces that have already been explained above. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             34 void chatterCallback(const std_msgs::String::ConstPtr& msg)
-             35 {
-             36   ROS_INFO("I heard: [%s]", msg->data.c_str());
-             37 }
-           ```
+       ```
+         34 void chatterCallback(const std_msgs::String::ConstPtr& msg)
+         35 {
+         36   ROS_INFO("I heard: [%s]", msg->data.c_str());
+         37 }
+       ```
 
 
 
-            This is the callback function that will get called when a new message has arrived on the `chatter` topic. The message is passed in a [boost shared_ptr](http://www.boost.org/doc/libs/1_37_0/libs/smart_ptr/shared_ptr.htm),  which means you can store it off if you want, without worrying about it  getting deleted underneath you, and without copying the underlying  data. 
+​        This is the callback function that will get called when a new message has arrived on the `chatter` topic. The message is passed in a [boost shared_ptr](http://www.boost.org/doc/libs/1_37_0/libs/smart_ptr/shared_ptr.htm),  which means you can store it off if you want, without worrying about it  getting deleted underneath you, and without copying the underlying  data. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             75   ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
-           ```
+       ```
+         75   ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
+       ```
 
 
 
-            Subscribe to the `chatter` topic with the master.  ROS will call the `chatterCallback()`  function whenever a new message arrives.  The 2nd argument is the queue  size, in case we are not able to process messages fast enough.  In this  case, if the queue reaches 1000 messages, we will start throwing away  old messages as new ones arrive. 
+​        Subscribe to the `chatter` topic with the master.  ROS will call the `chatterCallback()`  function whenever a new message arrives.  The 2nd argument is the queue  size, in case we are not able to process messages fast enough.  In this  case, if the queue reaches 1000 messages, we will start throwing away  old messages as new ones arrive. 
 
-           `NodeHandle::subscribe()` returns a `ros::Subscriber`  object, that you must hold on to until you want to unsubscribe.  When  the Subscriber object is destructed, it will automatically unsubscribe  from the `chatter` topic. 
+​       `NodeHandle::subscribe()` returns a `ros::Subscriber`  object, that you must hold on to until you want to unsubscribe.  When  the Subscriber object is destructed, it will automatically unsubscribe  from the `chatter` topic. 
 
-           There are versions of the `NodeHandle::subscribe()` function which allow you to specify a class member function, or even anything callable by a Boost.Function object.  The [roscpp overview](http://wiki.ros.org/roscpp/Overview) contains more information. 
+​       There are versions of the `NodeHandle::subscribe()` function which allow you to specify a class member function, or even anything callable by a Boost.Function object.  The [roscpp overview](http://wiki.ros.org/roscpp/Overview) contains more information. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             82   ros::spin();
-           ```
+       ```
+         82   ros::spin();
+       ```
 
 
 
-            `ros::spin()`  enters a loop, calling message callbacks as fast as possible.  Don't  worry though, if there's nothing for it to do it won't use much CPU.  `ros::spin()` will exit once `ros::ok()` returns false, which means `ros::shutdown()` has been called, either by the default Ctrl-C handler, the master telling us to shutdown, or it being called manually. 
+​        `ros::spin()`  enters a loop, calling message callbacks as fast as possible.  Don't  worry though, if there's nothing for it to do it won't use much CPU.  `ros::spin()` will exit once `ros::ok()` returns false, which means `ros::shutdown()` has been called, either by the default Ctrl-C handler, the master telling us to shutdown, or it being called manually. 
 
-           There are other ways of pumping callbacks, but we won't worry about those here.  The [roscpp_tutorials](http://wiki.ros.org/roscpp_tutorials) package has some demo applications which demonstrate this.  The [roscpp overview](http://wiki.ros.org/roscpp/Overview) also contains more information. 
+​       There are other ways of pumping callbacks, but we won't worry about those here.  The [roscpp_tutorials](http://wiki.ros.org/roscpp_tutorials) package has some demo applications which demonstrate this.  The [roscpp overview](http://wiki.ros.org/roscpp/Overview) also contains more information. 
 
-           Again, here's a condensed version of what's going on: 
+​       Again, here's a condensed version of what's going on: 
 
-           - Initialize the ROS system 
-           - Subscribe to the `chatter` topic 
-           - Spin, waiting for messages to arrive 
-           - When a message arrives, the `chatterCallback()` function is called 
+       - Initialize the ROS system 
+              - Subscribe to the `chatter` topic 
+              - Spin, waiting for messages to arrive 
+                     - When a message arrives, the `chatterCallback()` function is called 
 
-        3. Build Nodes
+    3. Build Nodes
 
-           把這些加到CMakeLists.txt最下面
+       把這些加到CMakeLists.txt最下面
 
-           ```
-           add_executable(talker src/talker.cpp)
-           target_link_libraries(talker ${catkin_LIBRARIES})
-           add_dependencies(talker beginner_tutorials_generate_messages_cpp)
-           
-           add_executable(listener src/listener.cpp)
-           target_link_libraries(listener ${catkin_LIBRARIES})
-           add_dependencies(listener beginner_tutorials_generate_messages_cpp)
-           ```
+       ```
+       add_executable(talker src/talker.cpp)
+       target_link_libraries(talker ${catkin_LIBRARIES})
+       add_dependencies(talker beginner_tutorials_generate_messages_cpp)
+       
+       add_executable(listener src/listener.cpp)
+       target_link_libraries(listener ${catkin_LIBRARIES})
+       add_dependencies(listener beginner_tutorials_generate_messages_cpp)
+       ```
 
-           再重新build work space一次
+       再重新build work space一次
 
-           ```
-           # In your catkin workspace
-           $ cd ~/catkin_ws
-           $ catkin_make  
-           ```
+       ```
+       # In your catkin workspace
+       $ cd ~/catkin_ws
+       $ catkin_make  
+       ```
 
-           ＊不過每當build work space後，都要執行
+       ＊不過每當build work space後，都要執行
 
-           ```
-           source ~/[work space]/devel/setup.bash
-           ```
+       ```
+       source ~/[work space]/devel/setup.bash
+       ```
 
   13. 檢查Pub跟Subs
 
@@ -840,39 +840,39 @@ $ rosparam dump params.yaml
 
 
 
-           catkin specific If you are using catkin, make sure you have sourced your workspace's setup.sh file after calling `catkin_make` but before trying to use your applications: 
+​       catkin specific If you are using catkin, make sure you have sourced your workspace's setup.sh file after calling `catkin_make` but before trying to use your applications: 
 
 
 
-           ```
-           # In your catkin workspace
-           $ cd ~/catkin_ws
-           $ source ./devel/setup.bash
-           ```
+       ```
+       # In your catkin workspace
+       $ cd ~/catkin_ws
+       $ source ./devel/setup.bash
+       ```
 
 
 
 
 
-           In the last tutorial we made a publisher called "talker". Let's run it: 
+​       In the last tutorial we made a publisher called "talker". Let's run it: 
 
-           ```
-           $ rosrun beginner_tutorials talker      (C++)
-           ```
+       ```
+       $ rosrun beginner_tutorials talker      (C++)
+       ```
 
-        2. Run Subscriber
+    2. Run Subscriber
 
-           在另一個Terminal：
+       在另一個Terminal：
 
-           ```
-           $ rosrun beginner_tutorials listener     (C++)
-           ```
+       ```
+       $ rosrun beginner_tutorials listener     (C++)
+       ```
 
-           如果是新開的Terminal就要執行
+       如果是新開的Terminal就要執行
 
-           ```
-           source ~/[work space]/devel/setup.bash
-           ```
+       ```
+       source ~/[work space]/devel/setup.bash
+       ```
 
   14. Writing a Simple Service and Client (C++)
 
@@ -882,114 +882,114 @@ $ rosparam dump params.yaml
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-           #include "ros/ros.h"
-           #include "beginner_tutorials/AddTwoInts.h"
-           ```
-
-
-
-            `beginner_tutorials/AddTwoInts.h` is the header file generated from the srv file that we created earlier. 
+       ```
+       #include "ros/ros.h"
+       #include "beginner_tutorials/AddTwoInts.h"
+       ```
 
 
 
-           切换行号显示
-
-           ```
-              4 bool add(beginner_tutorials::AddTwoInts::Request  &req,
-              5          beginner_tutorials::AddTwoInts::Response &res)
-           ```
+​        `beginner_tutorials/AddTwoInts.h` is the header file generated from the srv file that we created earlier. 
 
 
 
-            This  function provides the service for adding two ints, it takes in the  request and response type defined in the srv file and returns a boolean.   
+​       切换行号显示
+
+       ```
+          4 bool add(beginner_tutorials::AddTwoInts::Request  &req,
+          5          beginner_tutorials::AddTwoInts::Response &res)
+       ```
 
 
 
-           切换行号显示
-
-           ```
-              6 {
-              7   res.sum = req.a + req.b;
-              8   ROS_INFO("request: x=%ld, y=%ld", (long int)req.a, (long int)req.b);
-              9   ROS_INFO("sending back response: [%ld]", (long int)res.sum);
-             10   return true;
-             11 }
-           ```
+​        This  function provides the service for adding two ints, it takes in the  request and response type defined in the srv file and returns a boolean.   
 
 
 
-            Here  the two ints are added and stored in the response. Then some  information about the request and response are logged. Finally the  service returns true when it is complete. 
+​       切换行号显示
+
+       ```
+          6 {
+          7   res.sum = req.a + req.b;
+          8   ROS_INFO("request: x=%ld, y=%ld", (long int)req.a, (long int)req.b);
+          9   ROS_INFO("sending back response: [%ld]", (long int)res.sum);
+         10   return true;
+         11 }
+       ```
 
 
 
-           切换行号显示
-
-           ```
-             18   ros::ServiceServer service = n.advertiseService("add_two_ints", add);
-           ```
+​        Here  the two ints are added and stored in the response. Then some  information about the request and response are logged. Finally the  service returns true when it is complete. 
 
 
 
-            Here the service is created and advertised over ROS.  
+​       切换行号显示
 
-        2. Wirting a Service Client Node
-
-           Now, let's break the code down. 
-
-
-
-           切换行号显示
-
-           ```
-             15   ros::ServiceClient client = n.serviceClient<beginner_tutorials::AddTwoInts>("add_two_ints");
-           ```
+       ```
+         18   ros::ServiceServer service = n.advertiseService("add_two_ints", add);
+       ```
 
 
 
-            This creates a client for the `add_two_ints` service.  The `ros::ServiceClient` object is used to call the service later on. 
+​        Here the service is created and advertised over ROS.  
+
+    2. Wirting a Service Client Node
+
+       Now, let's break the code down. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             16   beginner_tutorials::AddTwoInts srv;
-             17   srv.request.a = atoll(argv[1]);
-             18   srv.request.b = atoll(argv[2]);
-           ```
+       ```
+         15   ros::ServiceClient client = n.serviceClient<beginner_tutorials::AddTwoInts>("add_two_ints");
+       ```
 
 
 
-            Here  we instantiate an autogenerated service class, and assign values into  its request member.  A service class contains two members, `request` and `response`.  It also contains two class definitions, `Request` and `Response`.   
+​        This creates a client for the `add_two_ints` service.  The `ros::ServiceClient` object is used to call the service later on. 
 
 
 
-           切换行号显示
+​       切换行号显示
 
-           ```
-             19   if (client.call(srv))
-           ```
+       ```
+         16   beginner_tutorials::AddTwoInts srv;
+         17   srv.request.a = atoll(argv[1]);
+         18   srv.request.b = atoll(argv[2]);
+       ```
 
 
 
-            This  actually calls the service.  Since service calls are blocking, it will  return once the call is done.  If the service call succeeded, `call()` will return true and the value in `srv.response` will be valid.  If the call did not succeed, `call()` will return false and the value in `srv.response` will be invalid. 
+​        Here  we instantiate an autogenerated service class, and assign values into  its request member.  A service class contains two members, `request` and `response`.  It also contains two class definitions, `Request` and `Response`.   
 
-        3. Build nodes
 
-           一樣要在CMakeList.txt加入些指令，讓它在執行 $ catkin_make  指令時可以被build
 
-           ```
-           add_executable(add_two_ints_server src/add_two_ints_server.cpp)
-           target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
-           add_dependencies(add_two_ints_server beginner_tutorials_gencpp)
-           
-           add_executable(add_two_ints_client src/add_two_ints_client.cpp)
-           target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
-           add_dependencies(add_two_ints_client beginner_tutorials_gencpp)
-           ```
+​       切换行号显示
+
+       ```
+         19   if (client.call(srv))
+       ```
+
+
+
+​        This  actually calls the service.  Since service calls are blocking, it will  return once the call is done.  If the service call succeeded, `call()` will return true and the value in `srv.response` will be valid.  If the call did not succeed, `call()` will return false and the value in `srv.response` will be invalid. 
+
+    3. Build nodes
+
+       一樣要在CMakeList.txt加入些指令，讓它在執行 $ catkin_make  指令時可以被build
+
+       ```
+       add_executable(add_two_ints_server src/add_two_ints_server.cpp)
+       target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
+       add_dependencies(add_two_ints_server beginner_tutorials_gencpp)
+       
+       add_executable(add_two_ints_client src/add_two_ints_client.cpp)
+       target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
+       add_dependencies(add_two_ints_client beginner_tutorials_gencpp)
+       ```
 
   15. 驗證 Service Server and Clinet
 
