@@ -20,7 +20,7 @@ Using TensorFlow with docker, object detection example.
 
    - `--runtime=nvidia` : Container can use GPU resource.
    - `--name jaden-tensorflow` : Container name.
-   - `-v host path:container path` : Mount host disk to container.
+   - `-v host path:container path` : Mount host disk to container. **Important!! if you don't have the folder in host, docker will create one, but the owner will be root.**
    - `-p 49152:8888` : Map port (Host:Container). 8888 is for "jupyter-notebook", 6006 is for "tensorboard", 22 is for "ssh"
    - `-it tensorflow/tensorflow:1.12.0-gpu-py3 bash` : Download image and interact with "bash". About images and tag, refer:
      - https://hub.docker.com/r/tensorflow/tensorflow
@@ -62,7 +62,7 @@ Using TensorFlow with docker, object detection example.
    $ /protoc_3.3/bin/protoc object_detection/protos/*.proto --python_out=.
    ```
 
-   The followings are optional, I tried work without them:
+   
 
    ```shell
    $ pip install pillow
