@@ -81,7 +81,7 @@ Using TensorFlow with docker, object detection example.
    $ ./run_jupyter.sh
    ```
 
-   Open your browser access [You host IP:49152], put the token shows on terminal.
+   Open your browser and access `[You host IP]:49152`, use the token which shows on terminal for this page. (Notice that host's 49152 port => container's 8888 port)
 
    Get in /models/research/object_detection/, click `object_detection_tutorial.ipynb` to run.
 
@@ -89,14 +89,16 @@ Using TensorFlow with docker, object detection example.
 
 7. Test the code:
 
-   Change the code like this:
+   If you want to test this code with your own images, put some images in the path, the path is located at:
+
+   /models/research/object_detection/test_images
+
+   Then change the code like this:
 
    ```
    PATH_TO_TEST_IMAGES_DIR = 'test_images'
    TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 8) ]
    ```
 
-    The path is located at:
-
-   /models/research/object_detection/test_images
+   Means I have image1.jpg to image7.jpg for this example.
 
