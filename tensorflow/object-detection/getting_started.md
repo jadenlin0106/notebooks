@@ -62,7 +62,7 @@ Using TensorFlow with docker, object detection example.
    $ /protoc_3.3/bin/protoc object_detection/protos/*.proto --python_out=.
    ```
 
-   
+   Install dependencies:
 
    ```shell
    $ pip install pillow
@@ -73,6 +73,10 @@ Using TensorFlow with docker, object detection example.
    # add models/research and models/research/slim in PYTHONPATH
    $ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
    ```
+
+   Also, take a look:https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
+
+   
 
 6. Open jupyter notebook:
 
