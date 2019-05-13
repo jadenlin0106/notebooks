@@ -6,17 +6,17 @@ Object detection's input is `.record` file, usually our raw dataset would be VOC
 
 ```
 .
-└── VOCdevkit     			   #VOC's root
-	├── models				   # tensorflow/models package
-	├── protoc_3.3			   # google protocol buffer tool
-	└── traning_data		   #datasets
-        ├── Annotations        # xml files, one on one map to JPEGImages's photos
-        ├── ImageSets          # txt files, contains photo path
-        ├── JPEGImages 		   # jpg files, photos
-        ├── csv_data 		   # csv files
-        ├── record_data 	   # tfrevoed files
-        ├── xml_to_csv.py
-        ├── generate_tfrecord.py
+└── VOCdevkit                  #VOC's root
+	├── models                 # tensorflow/models package
+	├── protoc_3.3             # google protocol buffer tool
+	└── traning_data           #datasets
+		├── Annotations        # xml files, one on one map to JPEGImages's photos
+		├── ImageSets          # txt files, contains photo path
+		├── JPEGImages         # jpg files, photos
+		├── csv_data           # csv files
+		├── record_data        # tfrevoed files
+		├── xml_to_csv.py
+		└── generate_tfrecord.py
 ```
 
 1. #### Step 1: convert xml to csv
@@ -81,3 +81,4 @@ Object detection's input is `.record` file, usually our raw dataset would be VOC
    means you didn't assign your classes.
 
    
+
