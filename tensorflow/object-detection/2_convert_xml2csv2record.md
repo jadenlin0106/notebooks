@@ -58,6 +58,10 @@ Object detection's input is `.record` file, usually our raw dataset would be VOC
 
    It will take a while...
 
+   Finally, check the total size of your tfrecord files and compare it with the total file size of your image files. They should be about the same size.
+
+   
+
    
 
    Note:
@@ -81,4 +85,3 @@ Object detection's input is `.record` file, usually our raw dataset would be VOC
    means you didn't assign your classes.
 
    
-
