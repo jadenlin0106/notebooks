@@ -16,7 +16,7 @@ Object detection's input is `.record` file, usually our raw dataset would be VOC
 		├── csv_data           # csv files
 		├── record_data        # tfrevoed files
 		├── xml_to_csv.py
-		└── generate_tfrecord.py
+		└── csv_to_tfrecord.py
 ```
 
 1. #### Step 1: convert xml to csv
@@ -24,7 +24,7 @@ Object detection's input is `.record` file, usually our raw dataset would be VOC
    I assume that you have already finished [1_getting_started](./1_getting_started.md), cause we need the tensorflow/models package and export PYTHONPATH, also you will need tensorflow too:
 
    ```shell
-   $ sudo pip install tensorflow
+   $ sudo pip install tensorflow==1.12.2
    ```
 
    To convert xml of VOC to csv file, use [xml_to_csv.py](./xml_to_csv.py).
@@ -34,7 +34,7 @@ Object detection's input is `.record` file, usually our raw dataset would be VOC
    Usage:
 
    ```shell
-   $ cd [Path to traning_data]
+   $ cd [Path to traning_data or testing_data]
    $ python ./xml_to_csv.py
    ```
 
@@ -46,14 +46,16 @@ Object detection's input is `.record` file, usually our raw dataset would be VOC
 
 2. #### Step 2: convert csv to record
 
-   To convert csv to record, use [generate_tfrecord.py](./generate_tfrecord.py).
+   Before converting, you may need to split your data for training and testing. I didn't, cause I got two of VOC data, one for training and the other one for testing, so...please search this part on google.
+
+   To convert csv to record, use [csv_to_tfrecord.py](./csv_to_tfrecord.py).
 
    You may need to change `flags.DEFINE_string` in the code, and customize you Classes in `class_text_to_int(row_label)` of the code.
 
    Usage example:
 
    ```shell
-   $ python ./generate_tfrecord.py --csv_input=csv_data/train_labels.csv  --output_path=record_data/train.record
+   $ python ./csv_to_tfrecord.py --csv_input=csv_data/train_labels.csv  --output_path=record_data/train.record
    ```
 
    It will take a while...
