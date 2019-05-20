@@ -113,7 +113,7 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
 
    Now, your ssd_model directory should have:
 
-   ![1557901972787](/home/jaden/git/notebooks/tensorflow/object-detection/images/ssd_model_ls.png)
+   ![1557901972787](./images/ssd_model_ls.png)
 
    
 
@@ -143,11 +143,11 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
 
    Using tensorflow (CPU):
 
-   ![1557904357837](/home/jaden/git/notebooks/tensorflow/object-detection/images/Itistraining.png)
+   ![1557904357837](./images/Itistraining.png)
 
    Using tensorflow-gpu==1.12.2 (GPU):
 
-   ![1557904357837](/home/jaden/git/notebooks/tensorflow/object-detection/images/Itistraining2.png)
+   ![1557904357837](./images/Itistraining2.png)
 
    as you can see, GPU is 10 times faster than CPU.
 
