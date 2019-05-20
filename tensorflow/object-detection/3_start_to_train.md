@@ -151,41 +151,33 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
 
    as you can see, GPU is 10 times faster than CPU.
 
+   
 
+5. Evaluate:
 
+   Modify `~/dk-jaden-tensorflow/models/research/object_detection/utils/object_detection_evaluation.py`:
 
+   ```python
+   # replace line 213:
+   	category_name = unicode(category_name, 'utf-8')
+   # to
+   	category_name = str(category_name, 'utf-8')
+   ```
 
+   Start to evaluage:
 
+   ```shell
+   $ cd /dk-jaden-tensorflow/models/research
+   $ python object_detection/legacy/eval.py   --logtostderr   --pipeline_config_path=object_detection/ssd_model/ssd_mobilenet_v1_coco.config   --checkpoint_dir=object_detection/train --eval_dir=object_detection/eval
+   ```
 
-Evaluate:
+6. Monitor it by **tensorboard**:
 
-Modify `~/dk-jaden-tensorflow/models/research/object_detection/utils/object_detection_evaluation.py`:
+   ```shell
+   $ tensorboard --logdir /models/research/object_detection/
+   ```
 
-```python
-# replace line 213:
-	category_name = unicode(category_name, 'utf-8')
-# to
-	category_name = str(category_name, 'utf-8')
-```
-
-Start to evaluage:
-
-```shell
-$ cd /dk-jaden-tensorflow/models/research
-$ python object_detection/legacy/eval.py   --logtostderr   --pipeline_config_path=object_detection/ssd_model/ssd_mobilenet_v1_coco.config   --checkpoint_dir=object_detection/train --eval_dir=object_detection/eval
-```
-
-
-
-Monitor it by **tensorboard**:
-
-```shell
-$ tensorboard --logdir /models/research/object_detection/
-```
-
-and access [Host IP:port] on your browser.
-
-
+   and access [Host IP:port] on your browser.
 
 
 
@@ -218,3 +210,7 @@ Compatible table:
 ![1557912961580](./images/tensorflowCUDAtable.png)
 
 from: https://www.tensorflow.org/install/source#gpu_support_2
+
+
+
+Previous: [2_convert_VOC_to_record](./2_convert_VOC_to_record.md)
