@@ -65,6 +65,8 @@ $ sudo add-apt-repository \
    stable"
 ```
 
+
+
 #### 2.Install Docker CE
 
 Update the `apt` package index.
@@ -111,3 +113,30 @@ Verify that Docker CE is installed correctly by running the `hello-world` image.
 $ sudo docker run hello-world
 ```
 
+See also: [using_docker_without_sudo](./using_docker_without_sudo.md)
+
+
+
+#### 3.Docker for GPU
+
+Install nvidia-docker:
+
+```shell
+# Add nvidia-docker library
+$ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
+ sudo apt-key add -
+
+$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+
+$ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
+ sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
+$ sudo apt-get update
+
+# Install nvidia-docker2 and reload Docker daemon configuration
+$ sudo apt-get install -y nvidia-docker2
+$ sudo pkill -SIGHUP dockerd
+
+# Test nvidia-smi command
+docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+```

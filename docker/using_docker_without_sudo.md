@@ -3,10 +3,12 @@
 #### Create docker group and add specific user in the group:
 
 ```shell
-$ sudo usermod -aG docker <your_username>
+$ sudo usermod -aG docker [Your_username]
+# Or, for current user
+$ sudo usermod -aG docker ${USER}
 ```
 
-then Logout!
+then don't forget to **Logout** and login again.
 
 #### Check you permission 
 
