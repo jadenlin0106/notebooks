@@ -225,7 +225,7 @@ After [2_convert_VOC_to_record](./2_convert_VOC_to_record.md), you should have y
 
    
 
-   
+9. There is an example of calculating the mean Average Precision (mAP). If you are interested in it, you can take a look: [calculate_mAP.ipynb](./calculate_mAP.ipynb).
 
 
 
